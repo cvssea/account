@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2em;
+  text-align: center;
+}
+
+button {
+  display: block;
+  padding: 12px 45px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1em;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.focus {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.focus.slide-r .center {
+  -webkit-transform: translateX(-60vw);
+          transform: translateX(-60vw);
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+}
+
+.focus .center {
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(#0f2027), color-stop(#203a43), to(#2c5364));
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+}
+
+.focus.slide-r {
+  -webkit-animation: 0.9s go;
+          animation: 0.9s go;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.focus.slide-l {
+  -webkit-animation: 0.9s go-back;
+          animation: 0.9s go-back;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.center {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40vw 40vw;
+      grid-template-columns: 40vw 40vw;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 20vw;
+  color: #fff;
+}
+
+.center .signin-toggle,
+.center .signup-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.center .signin-toggle p,
+.center .signup-toggle p {
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.4em;
+  padding: 0.8em 0;
+}
+
+@-webkit-keyframes go {
+  0% {
+    -webkit-transform: scaleX(1) translateX(0);
+            transform: scaleX(1) translateX(0);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  30% {
+    -webkit-transform: scaleX(1.25) translateX(20vw);
+            transform: scaleX(1.25) translateX(20vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  60% {
+    -webkit-transform: scaleX(1.25) translateX(40vw);
+            transform: scaleX(1.25) translateX(40vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: scaleX(1) translateX(60vw);
+            transform: scaleX(1) translateX(60vw);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes go {
+  0% {
+    -webkit-transform: scaleX(1) translateX(0);
+            transform: scaleX(1) translateX(0);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  30% {
+    -webkit-transform: scaleX(1.25) translateX(20vw);
+            transform: scaleX(1.25) translateX(20vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  60% {
+    -webkit-transform: scaleX(1.25) translateX(40vw);
+            transform: scaleX(1.25) translateX(40vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: scaleX(1) translateX(60vw);
+            transform: scaleX(1) translateX(60vw);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@-webkit-keyframes go-back {
+  0% {
+    -webkit-transform: scaleX(1) translateX(60vw);
+            transform: scaleX(1) translateX(60vw);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  30% {
+    -webkit-transform: scaleX(1.25) translateX(40vw);
+            transform: scaleX(1.25) translateX(40vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  60% {
+    -webkit-transform: scaleX(1.25) translateX(20vw);
+            transform: scaleX(1.25) translateX(20vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: scaleX(1) translateX(0vw);
+            transform: scaleX(1) translateX(0vw);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes go-back {
+  0% {
+    -webkit-transform: scaleX(1) translateX(60vw);
+            transform: scaleX(1) translateX(60vw);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  30% {
+    -webkit-transform: scaleX(1.25) translateX(40vw);
+            transform: scaleX(1.25) translateX(40vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  60% {
+    -webkit-transform: scaleX(1.25) translateX(20vw);
+            transform: scaleX(1.25) translateX(20vw);
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  100% {
+    -webkit-transform: scaleX(1) translateX(0vw);
+            transform: scaleX(1) translateX(0vw);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+/*# sourceMappingURL=main.css.map */

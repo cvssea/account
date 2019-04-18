@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+$focus-area: 40vw;
+$sfactor: 1.25;
+$step3: 100vw - $focus-area;
+$step1: $step3 / 3;
+$step2: $step1 * 2;
+
+$gap: 100 - $focus-area * 2; 
