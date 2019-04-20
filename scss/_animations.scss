@@ -1,0 +1,78 @@
+// Focus area animations
+@keyframes go {
+  0% {
+    transform: scaleX(1) translateX(0);
+    animation-timing-function: ease-in;
+  }
+
+  30% {
+    transform: scaleX($gfactor) translateX($step1);
+    animation-timing-function: linear;
+  }
+
+  60% {
+    transform: scaleX($gfactor) translateX($step2);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    transform: scaleX(1) translateX($step3);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes go-back {
+  0% {
+    transform: scaleX(1) translateX($step3);
+    animation-timing-function: ease-in;
+  }
+
+  30% {
+    transform: scaleX($gfactor) translateX($step2);
+    animation-timing-function: linear;
+  }
+
+  60% {
+    transform: scaleX($gfactor) translateX($step1);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    transform: scaleX(1) translateX(0vw);
+    animation-timing-function: ease-out;
+  }
+}
+
+
+// Forms animations
+@keyframes hide {
+  0%,
+  49% {
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    visibility: hidden;
+    z-index: 1;
+  }
+}
+
+@keyframes show {
+  0%,
+  30% {
+    visibility: hidden;
+    z-index: 1;
+  }
+
+  60%,
+  99% {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  100% {
+    z-index: 4;
+    visibility: initial;
+  }
+}

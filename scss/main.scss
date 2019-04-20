@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500");
 @import "config";
+@import "animations";
 
+// Core Styles
 h2 {
   font-weight: 600;
   font-size: 2em;
@@ -20,6 +21,63 @@ button {
   outline: none;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    padding: 1em;
+    font-size: 0.8rem;
+    margin-bottom: 1em;
+    border: none;
+    background-color: color(input);
+    outline: none;
+  }
+
+  a {
+    padding: 1em;
+    font-size: 0.8rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    background-color: color(secondary);
+  }
+}
+
+// Social buttons
+.social-auth {
+  text-align: center;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &.social {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+
+    &:hover {
+      background-color: color(social);
+      text-decoration: none;
+      color: #fff;
+      border: none;
+      @include bezier(0.2s);
+    }
+  }
+}
+
 .container {
   position: relative;
   width: 100vw;
@@ -27,58 +85,64 @@ button {
   overflow: hidden;
 }
 
+// Sliding Background
 .focus {
   position: absolute;
+  top: 0;
   width: $focus-area;
   height: 100vh;
   opacity: 1;
-  z-index: 100;
   overflow: hidden;
+  z-index: 2;
 
   &.slide-r .center {
     transform: translateX(-$step3);
-    transition: transform 2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
   }
 
   .center {
     position: relative;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background: color(gradient);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
     width: 100vw;
     height: 100vh;
-    transition: transform 2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
   }
 
   &.slide-r {
-    animation: 0.9s go;
+    animation: $bg-anim-time go;
     animation-fill-mode: forwards;
   }
 
   &.slide-l {
-    animation: 0.9s go-back;
+    animation: $bg-anim-time go-back;
     animation-fill-mode: forwards;
   }
 }
 
 // togglers
-
-.center {
+#togglers {
+  position: absolute;
+  top: 0;
   display: grid;
-  grid-template-columns: $focus-area $focus-area;
-  grid-template-rows: 100%;
+  grid-template-columns: repeat(2, $focus-area);
+  grid-template-rows: 100vh;
   align-items: center;
   grid-gap: $gap;
   color: #fff;
+  z-index: 3;
 
   .signin-toggle,
   .signup-toggle {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     align-items: center;
+    // transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @include bezier(.9s);
 
     p {
       font-weight: 300;
@@ -87,49 +151,74 @@ button {
       padding: 0.8em 0;
     }
   }
-}
 
-// Animations
-@keyframes go {
-  0% {
-    transform: scaleX(1) translateX(0);
-    animation-timing-function: ease-in;
+  .signin-toggle.shift {
+    opacity: 0;
+    transform: translateX(-40%);
   }
 
-  30% {
-    transform: scaleX($sfactor) translateX($step1);
-    animation-timing-function: linear;
-  }
-
-  60% {
-    transform: scaleX($sfactor) translateX($step2);
-    animation-timing-function: linear;
-  }
-
-  100% {
-    transform: scaleX(1) translateX($step3);
-    animation-timing-function: ease-out;
+  .signup-toggle.shift {
+    opacity: 0;
+    transform: translateX(40%);
   }
 }
 
-@keyframes go-back {
-  0% {
-    transform: scaleX(1) translateX($step3);
-    animation-timing-function: ease-in;
+// Forms layout
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  transition: all $bg-anim-time ease-out;
+
+  form {
+    width: 60vw;
+
+    input {
+      width: 50%;
+      min-width: 20vw;
+    }
   }
 
-  30% {
-    transform: scaleX($sfactor) translateX($step2);
-    animation-timing-function: linear;
+  p {
+    padding: 1em;
+    text-align: center;
   }
 
-  60% {
-    transform: scaleX($sfactor) translateX($step1);
-    animation-timing-function: linear;
+  // Handle forms slide/show/hide
+  &.signup-form {
+    right: 0;
+
+    &.hide {
+      transform: translateX(-35%);
+      animation: $bg-anim-time hide;
+      animation-fill-mode: forwards;
+    }
+
+    &.show {
+      animation: $bg-anim-time show;
+      z-index: 4;
+    }
   }
 
-  100% {
-    transform: scaleX(1) translateX(0vw);
-    animation-timing-function: ease-out;
+  &.signin-form {
+    visibility: hidden;
+    transition: all $bg-anim-time ease-out;
+
+    &.hide {
+      transform: translateX(35%);
+      animation: $bg-anim-time hide;
+      animation-fill-mode: forwards;
+    }
+
+    &.show {
+      animation: $bg-anim-time show;
+      animation-fill-mode: forwards;
+    }
   }
 }

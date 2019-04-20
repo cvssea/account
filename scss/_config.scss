@@ -9,9 +9,27 @@ body {
 }
 
 $focus-area: 40vw;
-$sfactor: 1.25;
+$gfactor: 1.25;
 $step3: 100vw - $focus-area;
 $step1: $step3 / 3;
 $step2: $step1 * 2;
 
-$gap: 100 - $focus-area * 2; 
+$gap: 100 - $focus-area * 2;
+
+$bg-anim-time: 0.9s;
+
+$colors: (
+  primary: red,
+  secondary: orange,
+  input: rgb(238, 238, 238),
+  social: #203a43,
+  gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@mixin bezier($duration: 0.5s) {
+  transition: all $duration cubic-bezier(0.075, 0.82, 0.165, 1);
+}
