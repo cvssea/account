@@ -33,3 +33,7 @@ $colors: (
 @mixin bezier($duration: 0.5s) {
   transition: all $duration cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
+@mixin easeout($duration: 0.5s) {
+  transition: all $duration ease-out;
+}

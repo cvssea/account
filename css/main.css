@@ -350,8 +350,8 @@ a.social:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: all 0.9s ease-out;
+  transition: all 0.9s ease-out;
 }
 
 #togglers .signin-toggle p,
@@ -364,14 +364,14 @@ a.social:hover {
 
 #togglers .signin-toggle.shift {
   opacity: 0;
-  -webkit-transform: translateX(-40%);
-          transform: translateX(-40%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 #togglers .signup-toggle.shift {
   opacity: 0;
-  -webkit-transform: translateX(40%);
-          transform: translateX(40%);
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
 }
 
 .form-container {

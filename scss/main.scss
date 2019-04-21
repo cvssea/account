@@ -141,8 +141,7 @@ a {
     width: 85%;
     margin: 0 auto;
     align-items: center;
-    // transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    @include bezier(.9s);
+    @include easeout(0.9s);
 
     p {
       font-weight: 300;
@@ -154,12 +153,12 @@ a {
 
   .signin-toggle.shift {
     opacity: 0;
-    transform: translateX(-40%);
+    transform: translateX(-50%);
   }
 
   .signup-toggle.shift {
     opacity: 0;
-    transform: translateX(40%);
+    transform: translateX(50%);
   }
 }
 
