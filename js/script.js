@@ -12,6 +12,30 @@ buttons.forEach(button => {
 function action() {
   focusClasses();
   formClasses();
+  changeTitle(title);
+}
+
+// Change title on toggle
+const title = [
+  {
+    atLogin: false,
+    title: "Signin - Website Name"
+  },
+  {
+    atRegister: true,
+    title: "Register - Website Name"
+  }
+];
+
+function changeTitle(title) {
+  const [login, register] = title;
+  login.atLogin = !login.atLogin;
+  register.atRegister = !register.atRegister;
+  if (login.atLogin) {
+    document.title = login.title;
+  } else {
+    document.title = register.title;
+  }
 }
 
 // Handle sliding focus area classes and togglers content
@@ -33,8 +57,8 @@ function focusClasses() {
 function formClasses() {
   forms.forEach(form => {
     // Fix disappearing .signin-form when switching hide/show classes
-    if (form.classList.contains('signin-form')) {
-      form.style.visibility = 'initial';
+    if (form.classList.contains("signin-form")) {
+      form.style.visibility = "initial";
     }
 
     if (form.classList.contains("hide")) {
